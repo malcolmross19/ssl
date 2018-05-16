@@ -6,16 +6,13 @@ class main extends AppController{
         $navLinks = array(
             "mainlink"=>"Home",
             "aboutlink"=>"About",
+            "serviceslink"=>"Services",
             "contactlink"=>"Contact"
         );
 
-        // $this->getView("header2");
 
-        $this->getView("navigation", $navLinks);
+        $this->getView("welcome", $navLinks);
 
-        $this->getView("main");
-
-        $this->getView("footer");
     }
 }
 

@@ -20,7 +20,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header2.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/header2.php">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -29,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/main.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -79,9 +79,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="123" />
+    <option name="width" value="1280" />
     <option name="height" value="724" />
   </component>
   <component name="ProjectView">
@@ -149,15 +149,15 @@
       <workItem from="1525824719174" duration="1173000" />
       <workItem from="1525905138152" duration="517000" />
       <workItem from="1525907281661" duration="5769000" />
-      <workItem from="1525999894261" duration="3912000" />
+      <workItem from="1525999894261" duration="3929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11371000" />
+    <option name="totallyTimeSpent" value="11388000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="724" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="824" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23104435" />
@@ -265,13 +265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/navigation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -283,6 +276,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
         </state>
       </provider>
     </entry>
