@@ -3,10 +3,22 @@
 class welcome extends AppController{
     public function __construct()
     {
-        $this->getView("header",array("pagename"=>"welcome"));
+        //db con
+        //global information
+
+        //$this->getView("header");
+
+        //$this->getView("welcome");
+    }
+
+    // third party index -- default method
+    public function index(){
+        $this->getView("header");
 
         $this->getView("welcome");
     }
 }
+
+
 
 ?>
