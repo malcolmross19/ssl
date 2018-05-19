@@ -15,7 +15,7 @@ class welcome extends AppController{
     public function index(){
         $this->getView("header");
 
-        $this->getView("welcome");
+        $this->getView("home");
     }
 }
 

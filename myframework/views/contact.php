@@ -1,76 +1,86 @@
-<!--Copy and paste the code below into your bootstrap html page -->
+<!--<h3 style="color:#FF6633;"><?//php echo $_GET[msg];?></h3>-->
 
-<h1>Contact Us</h1>
-<h3 style="color:#FF6633;"><?php echo $_GET[msg];?></h3>
-<hr>
-
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleSelect1">Example select</label>
-        <select class="form-control" id="exampleSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleTextarea">Example textarea</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-    </div>
-    <fieldset class="form-group">
-        <legend>Radio buttons</legend>
+<div class="container">
+    <h1>Contact Us</h1>
+    <hr>
+    <form method="post">
+        <div class="form-group">
+            <label for="email">Email address (required)</label>
+            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password (required)</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="requestResponse">Request Response?</label>
+            <select class="form-control" id="requestResponse">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Message (required)</label>
+            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="attachments">Attachments (optional)</label>
+            <input type="file" class="form-control-file" id="attachments" name="attachments" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Attach files from your computer.</small>
+        </div>
+        <fieldset class="form-group">
+            <legend>Select Country</legend>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="United States" checked>
+                    United States
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="Mexico">
+                    Mexico
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="Canada">
+                    Canada
+                </label>
+            </div>
+        </fieldset>
         <div class="form-check">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Option one is this and that&mdash;be sure to include why it's great
+                <input type="checkbox" class="form-check-input">
+                Check me out
             </label>
         </div>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                Option two can be something else and selecting it will deselect option one
-            </label>
-        </div>
-        <div class="form-check disabled">
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                Option three is disabled
-            </label>
-        </div>
-    </fieldset>
-    <div class="form-check">
-        <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
-            Check me out
-        </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+        <input type="button" class="btn btn-primary" value="Submit" id="ajaxbutton">
+
+    </form>
+</div>
+<script src="../assets/vendor/jquery/jquery.min.js"></script>
+<script>
+    $("#ajaxbutton").click(function() {
+        $.ajax({
+            method: "POST",
+            url: "/main/ajaxParams",
+            data: { email: $("#email").val(), password: $("#password").val(), message: $("#message").val()},
+            success: function (msg) {
+                var match = /\r|\n/.exec(msg);
+                if(msg==match+"Success"){
+                    alert("Message Sent Successfully!");
+                }else if(msg==match+"Invalid info") {
+                    alert("There was an issue sending your message.")
+                }else{
+                    alert("You made a mistake! Try Again!")
+                }
+            }
+        })
+    })
+</script>
+
 </body>
 </html>

@@ -18,31 +18,38 @@
     <link href="../assets/vendor/bootstrap/css/tether.min.css">
 
     <script src="../assets/email/validation.js" type="text/javascript"></script>
+
 </head>
 <body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="http://placehold.it/300x60?text=Logo" width="150" height="30" alt="">
+        <a <?=@$data["pagename"]=="index"?'class="active"':''?> href="main/login">
+            <!--<img src="http://placehold.it/300x60?text=Logo" width="150" height="30" alt="">-->
+            Login
         </a>
+        <??>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                <li <?=@$data["pagename"]=="index"?'class="active"':''?>>
+                    <a class="nav-link" href="/" onclick="checkURL(this)">Home</a>
+                </li>
+                <li <?=@$data["pagename"]=="about"?'class="active"':''?>>
+                    <a class="nav-link" href="about" onclick="toggleActive(this)">About</a>
+                </li>
+                <li <?=@$data["pagename"]=="services"?'class="active"':''?>>
+                    <a class="nav-link" href="services" onclick="toggleActive(this)">Services</a>
+                </li>
+                <li <?=@$data["pagename"]=="contact"?'class="active"':''?>>
+                    <a class="nav-link" href="main/contact" onclick="checkURL(this)">Contact</a>
+                </li>
 
-                <?
 
-
-                foreach ($data as $link) {
-                    $strLink = str_replace(".", "", $link);
-                    echo "<li class='nav-item'><a class='nav-link' onclick='toggleActive(this)' href='$link'>" . $link . "</a></li>";
-                }
-
-                ?>
-
+                <!--
                 <script>
 
                     function toggleActive(e){
@@ -59,6 +66,7 @@
 
 
                 </script>
+                -->
             </ul>
         </div>
     </div>

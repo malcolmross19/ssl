@@ -31,7 +31,7 @@ class AppController{
             // if there is a default method inside this controller (index)
 
         }else{
-            include './controllers/'.$config['defaultController'].".php";
+            include './controllers/' . $config['defaultController'] . ".php";
 
             $appcon = new $config['defaultController']($this);
 

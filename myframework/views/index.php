@@ -69,6 +69,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="../assets/vendor/bootstrap/js/tether.min.js"></script>
 <script src="../assets/vendor/jquery/jquery.min.js"></script>
+
 <script>
     $(function () {
         $('[data-toggle="popover"]').popover()
