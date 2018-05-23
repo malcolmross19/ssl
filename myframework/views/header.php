@@ -25,15 +25,14 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a <?=@$data["pagename"]=="index"?'class="active"':''?> href="main/login">
-            <!--<img src="http://placehold.it/300x60?text=Logo" width="150" height="30" alt="">-->
+        <!--<a class="nav-link" href="main/login">
+            <!--<img src="http://placehold.it/300x60?text=Logo" width="150" height="30" alt="">
             Login
-        </a>
-        <??>
+        </a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="navbar-form navbar-left" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li <?=@$data["pagename"]=="index"?'class="active"':''?>>
                     <a class="nav-link" href="/" onclick="checkURL(this)">Home</a>
@@ -47,27 +46,25 @@
                 <li <?=@$data["pagename"]=="contact"?'class="active"':''?>>
                     <a class="nav-link" href="main/contact" onclick="checkURL(this)">Contact</a>
                 </li>
-
-
-                <!--
-                <script>
-
-                    function toggleActive(e){
-                        e.parentElement.className = 'nav-item active';
-
-                        var links = document.getElementsByTagName('a');
-
-                        for(var i = 0; i < links.length; i++){
-                            if(links[i].href !== e.href){
-                                links[i].parentElement.className = 'nav-item';
-                            }
-                        }
-                    }
-
-
-                </script>
-                -->
             </ul>
-        </div>
+
+        </div> <!--/.nav-collapse -->
+        <span style="color:red"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?></span>
+        <?if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
+            <form class="navbar-form navbar-right">
+                <a href="/profile">Profile</a>|
+                <a href="/auth/logout">Logout</a>
+            </form>
+        <?}else{?>
+            <form class="form-inline" role="search" method="post" action="/auth/login" style="display:inline">
+                <div class="form-control">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                </div>
+                <div class="form-control">
+                    <input type="text" class="form-control" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+        <?}?>
     </div>
 </nav>

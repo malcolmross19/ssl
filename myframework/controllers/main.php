@@ -24,8 +24,11 @@ class main extends AppController{
     }
 
     public function contact(){
-        $this->getView('header', array("pagename"=>"contact"));
-        $this->getView('contact');
+        $this->getView("header", array("pagename"=>"contact"));
+
+        $random = substr( md5(rand()), 0, 7);
+
+        $this->getView("contact",array("cap"=>$random));
     }
 
     public function login(){
@@ -44,9 +47,31 @@ class main extends AppController{
 
     public function contactRecd(){
         $this->getView('header');
-        var_dump($_POST);
 
-        if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+        if($_REQUEST["captcha"]==$_SESSION["captcha"]){
+
+            if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+
+                echo "<br><br>Email invalid";
+
+                echo "<br><a href='/main/contact'>Click here to go back</a>";
+
+            }else{
+
+                echo "<br><br>Email valid";
+
+            }
+
+        }else{
+
+            echo "<br><br>Invalid captcha";
+
+            echo "<br><a href='/main/contact'>Click here to go back</a>";
+
+        }
+    }
+
+        /*if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
             echo "email is not valid";
         }else{
             echo "email is valid";
@@ -55,8 +80,8 @@ class main extends AppController{
 
         if(preg_match("/^[a-zA-Z]*$/",$_POST["password"])){
             echo "select different password";
-        }
-    }
+        }*/
+
 
     public function ajaxParams(){
         //var_dump($_REQUEST);
