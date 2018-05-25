@@ -2,6 +2,7 @@
 
 <!-- Page Content -->
 <div class="container">
+    <br><br>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin: 15px 0 10px 0;">
         Launch Modal

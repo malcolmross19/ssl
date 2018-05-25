@@ -56,7 +56,7 @@
                 <a href="/auth/logout">Logout</a>
             </form>
         <?}else{?>
-            <form class="form-inline" role="search" method="post" action="/auth/login" style="display:inline">
+            <form class="form-inline" role="search" method="post" action="/auth/fileLogin" style="display:inline">
                 <div class="form-control">
                     <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>
