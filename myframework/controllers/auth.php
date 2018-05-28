@@ -2,14 +2,27 @@
 
 class auth extends AppController{
 
-    public function __construct($urlPathParts, $config)
+    public function __construct($parent)
     {
-
+        $this->parent = $parent;
     }
 
     public function login(){
 
         if($_REQUEST["username"] && $_REQUEST["password"]){
+            $data = $this->parent->getModel("users")->select(
+                "select * from users where email = :email and password = :password",
+                array(":email"=>$_REQUEST["username"],":password"=>sha1($_REQUEST["password"])));
+
+            if($data){
+                $_SESSION["loggedin"]=1;
+                header("location:/main");
+            }else{
+                header("location:/main?msg=Bad Login");
+            }
+        }
+
+        /*if($_REQUEST["username"] && $_REQUEST["password"]){
 
             if($_REQUEST["username"]=="malcolmross93@gmail.com" && $_REQUEST["password"]=="password"){
                 $_SESSION["loggedin"]=1;
@@ -20,7 +33,7 @@ class auth extends AppController{
 
         }else{
                 header("Location:/main?msg=Bad Login");
-        }
+        }*/
 
     }
 

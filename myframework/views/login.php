@@ -4,7 +4,7 @@
     <form method="post" action="main/fileLogin">
         <div class="form-group">
             <label for="email">Email address (required)</label>
-            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">

@@ -51,10 +51,10 @@ class AppController{
         require_once './views/'.$page.".php";
     }
 
-    public function getModel(){
-
-        // add this later
-        // get then pass data to the page(view)
+    public function getModel($page){
+        require_once './models/'.$page.".php";
+        $model = new $page($this);
+        return $model;
     }
 }
 

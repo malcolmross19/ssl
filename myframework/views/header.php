@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="../assets/css/logo-nav.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap/css/tether.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="../assets/email/validation.js" type="text/javascript"></script>
 
@@ -35,10 +37,10 @@
         <div class="navbar-form navbar-left" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li <?=@$data["pagename"]=="index"?'class="active"':''?>>
-                    <a class="nav-link" href="/" onclick="checkURL(this)">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li <?=@$data["pagename"]=="about"?'class="active"':''?>>
-                    <a class="nav-link" href="about" onclick="toggleActive(this)">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li <?=@$data["pagename"]=="services"?'class="active"':''?>>
                     <a class="nav-link" href="services" onclick="toggleActive(this)">Services</a>
@@ -56,7 +58,7 @@
                 <a href="/auth/logout">Logout</a>
             </form>
         <?}else{?>
-            <form class="form-inline" role="search" method="post" action="/auth/fileLogin" style="display:inline">
+            <form class="form-inline" role="search" method="post" action="/auth/login" style="display:inline">
                 <div class="form-control">
                     <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>

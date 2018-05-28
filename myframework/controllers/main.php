@@ -50,7 +50,7 @@ class main extends AppController{
 
         if($_REQUEST["captcha"]==$_SESSION["captcha"]){
 
-            if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+            if(!filter_var($_REQUEST["username"],FILTER_VALIDATE_EMAIL)){
 
                 echo "<br><br>Email invalid";
 
