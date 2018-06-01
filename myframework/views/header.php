@@ -42,6 +42,12 @@
                 <li <?=@$data["pagename"]=="about"?'class="active"':''?>>
                     <a class="nav-link" href="/about">About</a>
                 </li>
+                <li <?=@$data["pagename"]=="api"?'class="active"':''?>>
+                    <a class="nav-link" href="/api/showApi">Api</a>
+                </li>
+                <li <?=@$data["pagename"]=="facebook"?'class="active"':''?>>
+                    <a class="nav-link" href="/facebookapi/facebookLogin">Facebook</a>
+                </li>
                 <li <?=@$data["pagename"]=="services"?'class="active"':''?>>
                     <a class="nav-link" href="services" onclick="toggleActive(this)">Services</a>
                 </li>
